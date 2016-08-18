@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using Canvas.LMS.Demo.Core.Coordinators;
 using Canvas.LMS.Demo.Core.Domain;
 using Canvas.LMS.Demo.Core.Requests;
 using Canvas.LMS.Demo.Core.Tests.Builders;
@@ -7,7 +10,7 @@ using FluentAssertions;
 using Newtonsoft.Json;
 using NUnit.Framework;
 
-namespace Canvas.LMS.Demo.Core.Tests
+namespace Canvas.LMS.Demo.Core.Tests.Coordinators
 {
     [TestFixture]
     public class EnrollmentCoordinatorTests
@@ -37,6 +40,12 @@ namespace Canvas.LMS.Demo.Core.Tests
             enrollment.Should().NotBeNull();
 
             Console.WriteLine(JsonConvert.SerializeObject(enrollment, Formatting.Indented));
+            
+            IEnumerable<UserDto> enrolledUsersInCourse = await _coursesCoordinator.GetUsersEnrolledInCourse(course.Id);
+            enrolledUsersInCourse.Any(u => u.Id == user.Id).Should().BeTrue();
+
+            IEnumerable<CourseDto> enrolledCoursesForUser = await _usersCoordinator.GetCourses(user.Id);
+            enrolledCoursesForUser.Any(c => c.Id == course.Id).Should().BeTrue();
         }
 
         private async Task<UserDto> CreateUser()

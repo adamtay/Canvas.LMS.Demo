@@ -49,25 +49,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccountsCoordinator.cs" />
+    <Compile Include="Builders\AssignmentRequestParametersBuilder.cs" />
     <Compile Include="Builders\CourseEnrollmentParametersBuilder.cs" />
     <Compile Include="Builders\CourseRequestParametersBuilder.cs" />
     <Compile Include="Builders\UserRequestParametersBuilder.cs" />
-    <Compile Include="CoursesCoordinator.cs" />
+    <Compile Include="Coordinators\AccountsCoordinator.cs" />
+    <Compile Include="Coordinators\CoursesCoordinator.cs" />
+    <Compile Include="Coordinators\EnrollmentCoordinator.cs" />
+    <Compile Include="Coordinators\UsersCoordinator.cs" />
     <Compile Include="Domain\AccountDto.cs" />
+    <Compile Include="Domain\AssignmentDto.cs" />
+    <Compile Include="Domain\AssignmentExtensionType.cs" />
+    <Compile Include="Domain\AssignmentGradingType.cs" />
+    <Compile Include="Domain\AssignmentSubmissionType.cs" />
     <Compile Include="Domain\CalendarDto.cs" />
     <Compile Include="Domain\CourseDto.cs" />
     <Compile Include="Domain\CourseEnrollmentDto.cs" />
     <Compile Include="Domain\EnrollmentDto.cs" />
     <Compile Include="Domain\UserDto.cs" />
-    <Compile Include="EnrollmentCoordinator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Requests\CreateAssignmentRequestDto.cs" />
     <Compile Include="Requests\CreateCourseRequestDto.cs" />
     <Compile Include="Requests\CreateCourseEnrollmentRequestDto.cs" />
     <Compile Include="Requests\CreateUserRequestDto.cs" />
     <Compile Include="RestClient\CanvasClient.cs" />
-    <Compile Include="RestClient\RestRequestExtensionMethods.cs" />
-    <Compile Include="UsersCoordinator.cs" />
+    <Compile Include="RestClient\RestClientExtensionMethods.cs" />
     <Compile Include="UserType.cs" />
   </ItemGroup>
   <ItemGroup>

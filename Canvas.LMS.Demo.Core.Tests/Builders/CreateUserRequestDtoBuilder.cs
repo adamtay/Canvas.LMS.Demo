@@ -25,7 +25,7 @@ namespace Canvas.LMS.Demo.Core.Tests.Builders
             _shortName = $"Test User {id}";
             _sortableName = $"User {id}, Test";
             _timeZone = "Pacific/Auckland";
-            _locale = "EN";
+            _locale = "en";
             _birthDate = DateTime.UtcNow.AddYears(-20);
             _termsOfUse = true;
             _skipRegistration = true;

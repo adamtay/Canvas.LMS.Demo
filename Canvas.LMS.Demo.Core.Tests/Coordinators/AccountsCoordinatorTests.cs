@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Canvas.LMS.Demo.Core.Coordinators;
 using Canvas.LMS.Demo.Core.Domain;
 using FluentAssertions;
 using Newtonsoft.Json;
 using NUnit.Framework;
 
-namespace Canvas.LMS.Demo.Core.Tests
+namespace Canvas.LMS.Demo.Core.Tests.Coordinators
 {
     [TestFixture]
     public class AccountsCoordinatorTests

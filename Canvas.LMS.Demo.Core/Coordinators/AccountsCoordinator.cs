@@ -4,7 +4,7 @@ using Canvas.LMS.Demo.Core.Domain;
 using Canvas.LMS.Demo.Core.RestClient;
 using RestSharp;
 
-namespace Canvas.LMS.Demo.Core
+namespace Canvas.LMS.Demo.Core.Coordinators
 {
     /// <summary>
     /// Coordinator for accessing account data.

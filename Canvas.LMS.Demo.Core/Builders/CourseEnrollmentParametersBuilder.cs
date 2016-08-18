@@ -24,9 +24,9 @@ namespace Canvas.LMS.Demo.Core.Builders
         /// <summary>
         /// Builds the request parameters.
         /// </summary>
-        public Dictionary<string, string> Build()
+        public Dictionary<string, object> Build()
         {
-            return new Dictionary<string, string>
+            return new Dictionary<string, object>
             {
                 {"enrollment[user_id]", _courseEnrollmentRequest.UserId},
                 {"enrollment[type]", _courseEnrollmentRequest.EnrollmentType.ToString()},

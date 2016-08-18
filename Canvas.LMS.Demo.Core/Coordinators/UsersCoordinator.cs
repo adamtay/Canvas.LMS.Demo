@@ -7,7 +7,7 @@ using Canvas.LMS.Demo.Core.Requests;
 using Canvas.LMS.Demo.Core.RestClient;
 using RestSharp;
 
-namespace Canvas.LMS.Demo.Core
+namespace Canvas.LMS.Demo.Core.Coordinators
 {
     /// <summary>
     /// Coordinator for accessing user information.
@@ -34,10 +34,21 @@ namespace Canvas.LMS.Demo.Core
             string resource = "accounts/self/users";
             RestRequest restRequest = new RestRequest(resource, Method.POST);
 
-            Dictionary<string, string> requestParameters = new UserRequestParametersBuilder(userRequestDto).Build();
+            Dictionary<string, object> requestParameters = new UserRequestParametersBuilder(userRequestDto).Build();
             restRequest.AddRequestParameters(requestParameters);
 
             return await _canvasClient.Execute<UserDto>(restRequest);
+        }
+
+        /// <summary>
+        /// Gets the list of active courses for the specified user.
+        /// </summary>
+        public async Task<IEnumerable<CourseDto>> GetCourses(int userId)
+        {
+            string resource = $"users/{userId}/courses";
+            RestRequest restRequest = new RestRequest(resource, Method.GET);
+
+            return await _canvasClient.Execute<List<CourseDto>>(restRequest);
         }
     }
 }

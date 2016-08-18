@@ -39,7 +39,7 @@ namespace Canvas.LMS.Demo.Core.Domain
 
         public bool HideFinalGrades { get; set; }
 
-        public string WorkFlowState { get; set; }
+        public string WorkflowState { get; set; }
 
         public bool RestrictEnrollmentsToCourseDates { get; set; }
     }

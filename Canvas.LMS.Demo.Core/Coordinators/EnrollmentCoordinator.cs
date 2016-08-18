@@ -7,7 +7,7 @@ using Canvas.LMS.Demo.Core.Requests;
 using Canvas.LMS.Demo.Core.RestClient;
 using RestSharp;
 
-namespace Canvas.LMS.Demo.Core
+namespace Canvas.LMS.Demo.Core.Coordinators
 {
     /// <summary>
     /// Coordinator for creating and viewing course enrollments.
@@ -34,7 +34,7 @@ namespace Canvas.LMS.Demo.Core
             string resource = $"courses/{courseEnrollmentRequest.CourseId}/enrollments";
             RestRequest restRequest = new RestRequest(resource, Method.POST);
 
-            Dictionary<string, string> requestParameters = new CourseEnrollmentParametersBuilder(courseEnrollmentRequest).Build();
+            Dictionary<string, object> requestParameters = new CourseEnrollmentParametersBuilder(courseEnrollmentRequest).Build();
             restRequest.AddRequestParameters(requestParameters);
 
             return await _canvasClient.Execute<EnrollmentDto>(restRequest);

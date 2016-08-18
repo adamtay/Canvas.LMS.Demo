@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using Canvas.LMS.Demo.Core.Requests;
 
 namespace Canvas.LMS.Demo.Core.Builders
@@ -25,14 +24,14 @@ namespace Canvas.LMS.Demo.Core.Builders
         /// <summary>
         /// Builds the request parameters.
         /// </summary>
-        public Dictionary<string, string> Build()
+        public Dictionary<string, object> Build()
         {
-            return new Dictionary<string, string>
+            return new Dictionary<string, object>
             {
                 {"course[name]", _createCourseRequest.Name},
                 {"course[course_code]", _createCourseRequest.CourseCode},
-                {"course[start_at]", _createCourseRequest.StartAt.ToString(CultureInfo.CurrentCulture)},
-                {"course[end_at]", _createCourseRequest.EndAt.HasValue ? _createCourseRequest.EndAt.ToString() : null},
+                {"course[start_at]", _createCourseRequest.StartAt.ToString("o")},
+                {"course[end_at]", _createCourseRequest.EndAt?.ToString("o")},
                 {"course[is_public]", _createCourseRequest.IsPublic.ToString()},
                 {"course[is_public_to_auth_users]", _createCourseRequest.IsPublicToAuthUsers.ToString()},
                 {"course[public_syllabus]", _createCourseRequest.PublicSyllabus.ToString()},

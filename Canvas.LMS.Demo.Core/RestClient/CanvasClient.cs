@@ -32,7 +32,7 @@ namespace Canvas.LMS.Demo.Core.RestClient
             AppendRequestHeaders(restRequest, userType);
 
             IRestResponse<T> response = await _client.ExecuteTaskAsync<T>(restRequest);
-            if (response.StatusCode == HttpStatusCode.OK)
+            if (response.StatusCode.IsSuccessStatusCode())
             {
                 return response.Data;
             }

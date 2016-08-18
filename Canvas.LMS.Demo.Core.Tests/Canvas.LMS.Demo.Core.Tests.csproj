@@ -56,14 +56,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccountsCoordinatorTests.cs" />
+    <Compile Include="Builders\CreateAssignmentRequestDtoBuilder.cs" />
     <Compile Include="Builders\CreateCourseEnrollmentRequestDtoBuilder.cs" />
     <Compile Include="Builders\CreateCourseRequestDtoBuilder.cs" />
     <Compile Include="Builders\CreateUserRequestDtoBuilder.cs" />
-    <Compile Include="CoursesCoordinatorTests.cs" />
-    <Compile Include="EnrollmentCoordinatorTests.cs" />
+    <Compile Include="Coordinators\AccountsCoordinatorTests.cs" />
+    <Compile Include="Coordinators\CoursesCoordinatorTests.cs" />
+    <Compile Include="Coordinators\EnrollmentCoordinatorTests.cs" />
+    <Compile Include="Coordinators\UsersCoordinatorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UsersCoordinatorTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -75,9 +76,7 @@
       <Name>Canvas.LMS.Demo.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Scenarios\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

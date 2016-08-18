@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using System.Web.Http;
 using Canvas.LMS.Demo.Core;
+using Canvas.LMS.Demo.Core.Coordinators;
 using Canvas.LMS.Demo.Core.Domain;
 
 namespace Canvas.LMS.Demo.WebApi.Controllers
