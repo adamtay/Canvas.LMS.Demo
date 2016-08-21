@@ -27,14 +27,14 @@ namespace Canvas.LMS.Demo.Core.Coordinators
         /// <summary>
         /// Creates a new user.
         /// </summary>
-        public async Task<UserDto> CreateUser(CreateUserRequestDto userRequestDto)
+        public async Task<UserDto> CreateUser(CreateUserRequestDto createUserRequest)
         {
-            if (userRequestDto == null) throw new ArgumentNullException(nameof(userRequestDto));
+            if (createUserRequest == null) throw new ArgumentNullException(nameof(createUserRequest));
 
             string resource = "accounts/self/users";
             RestRequest restRequest = new RestRequest(resource, Method.POST);
 
-            Dictionary<string, object> requestParameters = new UserRequestParametersBuilder(userRequestDto).Build();
+            Dictionary<string, object> requestParameters = new UserRequestParametersBuilder(createUserRequest).Build();
             restRequest.AddRequestParameters(requestParameters);
 
             return await _canvasClient.Execute<UserDto>(restRequest);

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Configuration;
-using System.Net;
 using System.Threading.Tasks;
 using RestSharp;
 
@@ -35,6 +34,25 @@ namespace Canvas.LMS.Demo.Core.RestClient
             if (response.StatusCode.IsSuccessStatusCode())
             {
                 return response.Data;
+            }
+
+            const string message = "Error retrieving response from the Canvas API. Check the inner details for more information.";
+            throw new ApplicationException(message, new Exception(response.Content));
+        }
+
+        /// <summary>
+        /// Executes the specified rest request.
+        /// </summary>
+        public async Task<IRestResponse> Execute(RestRequest restRequest, UserType userType = UserType.Admin)
+        {
+            if (restRequest == null) throw new ArgumentNullException(nameof(restRequest));
+
+            AppendRequestHeaders(restRequest, userType);
+
+            IRestResponse response = await _client.ExecuteTaskAsync(restRequest);
+            if (response.StatusCode.IsSuccessStatusCode())
+            {
+                return response;
             }
 
             const string message = "Error retrieving response from the Canvas API. Check the inner details for more information.";

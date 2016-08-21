@@ -18,8 +18,7 @@ namespace Canvas.LMS.Demo.Core.Tests.Builders
 
         public CreateUserRequestDtoBuilder()
         {
-            Random random = new Random();
-            int id = random.Next(0, 9999);
+            Guid id = Guid.NewGuid();
 
             _name = $"Test User {id}";
             _shortName = $"Test User {id}";
